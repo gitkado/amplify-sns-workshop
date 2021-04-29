@@ -54,8 +54,7 @@ export default function AllPosts() {
         const subscription = API.graphql(graphqlOperation(onCreatePost)).subscribe({
             next: (msg) => {
                 console.log('allposts subscription fired')
-                // ここがなかったらどうなるのか試す
-                // mutationEventDrivenだけど発火したら通知が来るだけなのか
+                // post is data that was created.
                 const post = msg.value.data.onCreatePost;
                 dispatch({ type: SUBSCRIPTION, post: post });
             }
