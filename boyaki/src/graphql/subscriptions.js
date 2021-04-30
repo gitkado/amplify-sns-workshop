@@ -23,3 +23,21 @@ export const onDeletePost = /* GraphQL */ `
     }
   }
 `;
+export const onCreateFollowRelationship = /* GraphQL */ `
+  subscription OnCreateFollowRelationship {
+    onCreateFollowRelationship {
+      followeeId
+      followerId
+      timestamp
+    }
+  }
+`;
+export const onDeleteFollowRelationship = /* GraphQL */ `
+  subscription OnDeleteFollowRelationship {
+    onDeleteFollowRelationship {
+      followeeId
+      followerId
+      timestamp
+    }
+  }
+`;

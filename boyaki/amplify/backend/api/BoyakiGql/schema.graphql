@@ -17,3 +17,19 @@ type Post
   owner: String
   timestamp: Int!
 }
+
+type FollowRelationship
+	@model(
+    mutations: {create: "createFollowRelationship", delete: "deleteFollowRelationship", update: null}
+    timestamps: null
+  )
+	@auth(rules: [
+		{allow: owner, ownerField:"followerId", provider: userPools, operations:[read, create, delete]},
+		{allow: private, provider: userPools, operations:[read]}
+	])
+	@key(fields: ["followeeId", "followerId"])
+{
+	followeeId: ID!
+	followerId: ID!
+	timestamp: Int!
+}
