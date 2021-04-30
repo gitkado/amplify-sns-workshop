@@ -53,3 +53,22 @@ export const deleteFollowRelationship = /* GraphQL */ `
     }
   }
 `;
+export const createTimeline = /* GraphQL */ `
+  mutation CreateTimeline(
+    $input: CreateTimelineInput!
+    $condition: ModelTimelineConditionInput
+  ) {
+    createTimeline(input: $input, condition: $condition) {
+      userId
+      timestamp
+      postId
+      post {
+        type
+        id
+        content
+        owner
+        timestamp
+      }
+    }
+  }
+`;

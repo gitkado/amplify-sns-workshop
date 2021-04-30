@@ -41,3 +41,19 @@ export const onDeleteFollowRelationship = /* GraphQL */ `
     }
   }
 `;
+export const onCreateTimeline = /* GraphQL */ `
+  subscription OnCreateTimeline($userId: String!) {
+    onCreateTimeline(userId: $userId) {
+      userId
+      timestamp
+      postId
+      post {
+        type
+        id
+        content
+        owner
+        timestamp
+      }
+    }
+  }
+`;

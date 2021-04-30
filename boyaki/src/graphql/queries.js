@@ -65,6 +65,55 @@ export const listFollowRelationships = /* GraphQL */ `
     }
   }
 `;
+export const getTimeline = /* GraphQL */ `
+  query GetTimeline($userId: ID!, $timestamp: Int!) {
+    getTimeline(userId: $userId, timestamp: $timestamp) {
+      userId
+      timestamp
+      postId
+      post {
+        type
+        id
+        content
+        owner
+        timestamp
+      }
+    }
+  }
+`;
+export const listTimelines = /* GraphQL */ `
+  query ListTimelines(
+    $userId: ID
+    $timestamp: ModelIntKeyConditionInput
+    $filter: ModelTimelineFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listTimelines(
+      userId: $userId
+      timestamp: $timestamp
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        userId
+        timestamp
+        postId
+        post {
+          type
+          id
+          content
+          owner
+          timestamp
+        }
+      }
+      nextToken
+    }
+  }
+`;
 export const listPostsSortedByTimestamp = /* GraphQL */ `
   query ListPostsSortedByTimestamp(
     $type: String

@@ -33,3 +33,20 @@ type FollowRelationship
 	followerId: ID!
 	timestamp: Int!
 }
+
+type Timeline
+	@model(
+    mutations: {create: "createTimeline", delete: null, update: null}
+    timestamps: null
+  )
+	@auth(rules: [
+    {allow: owner, ownerField: "userId", provider: userPools, operations:[read, create]},
+    {allow: private, provider: iam ,operations:[create]},
+	])
+	@key(fields: ["userId", "timestamp"])
+{
+	userId: ID!
+	timestamp: Int!
+	postId: ID!
+	post: Post @connection(fields: ["postId"])
+}
