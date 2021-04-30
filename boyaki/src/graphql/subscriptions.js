@@ -23,6 +23,22 @@ export const onDeletePost = /* GraphQL */ `
     }
   }
 `;
+export const onCreateTimeline = /* GraphQL */ `
+  subscription OnCreateTimeline($userId: String!) {
+    onCreateTimeline(userId: $userId) {
+      userId
+      timestamp
+      postId
+      post {
+        type
+        id
+        content
+        owner
+        timestamp
+      }
+    }
+  }
+`;
 export const onCreateFollowRelationship = /* GraphQL */ `
   subscription OnCreateFollowRelationship {
     onCreateFollowRelationship {
@@ -38,22 +54,6 @@ export const onDeleteFollowRelationship = /* GraphQL */ `
       followeeId
       followerId
       timestamp
-    }
-  }
-`;
-export const onCreateTimeline = /* GraphQL */ `
-  subscription OnCreateTimeline($userId: String!) {
-    onCreateTimeline(userId: $userId) {
-      userId
-      timestamp
-      postId
-      post {
-        type
-        id
-        content
-        owner
-        timestamp
-      }
     }
   }
 `;
