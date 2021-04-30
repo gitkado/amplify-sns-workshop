@@ -1,5 +1,10 @@
 # [amplify-sns-workshop](https://amplify-sns.workshop.aws/ja)
 
+## Mission
+
+- Picture uploads
+- Direct message
+
 ## environments
 
 ```shell
