@@ -14,6 +14,7 @@ import {
     Person as PersonIcon,
     Public as PublicIcon,
     Home as HomeIcon,
+    Search as SearchIcon,
 } from '@material-ui/icons';
 
 import {Auth, API, graphqlOperation } from 'aws-amplify';
@@ -112,6 +113,21 @@ export default function Sidebar({activeListItem}) {
                         <PublicIcon />
                     </ListItemIcon>
                     <ListItemText primary="Global Timeline" />
+                </ListItem>
+                <ListItem
+                    button
+                    selected={activeListItem === 'search'}
+                    onClick={() => {
+                        Auth.currentAuthenticatedUser().then((user) => {
+                            history.push('search');
+                        })
+                    }}
+                    key='search'
+                >
+                    <ListItemIcon>
+                        <SearchIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Search" />
                 </ListItem>
                 <ListItem
                     button
