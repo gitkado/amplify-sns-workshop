@@ -28,13 +28,7 @@
       }
     }
   },
-  "hosting": {
-    "amplifyhosting": {
-      "service": "amplifyhosting",
-      "providerPlugin": "awscloudformation",
-      "type": "manual"
-    }
-  },
+  "hosting": {},
   "function": {
     "createPostAndTimeline": {
       "build": true,

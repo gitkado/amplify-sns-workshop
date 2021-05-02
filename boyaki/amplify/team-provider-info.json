@@ -15,11 +15,8 @@
       "auth": {
         "boyakic086a09b": {}
       },
-      "hosting": {
-        "amplifyhosting": {
-          "appId": "d2akt28pv3nsgs",
-          "type": "manual"
-        }
+      "function": {
+        "createPostAndTimeline": {}
       }
     }
   },
@@ -42,12 +39,7 @@
       "function": {
         "createPostAndTimeline": {}
       },
-      "hosting": {
-        "amplifyhosting": {
-          "appId": "d2akt28pv3nsgs",
-          "type": "manual"
-        }
-      }
+      "hosting": {}
     }
   }
 }
