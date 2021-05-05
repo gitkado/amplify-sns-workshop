@@ -5,10 +5,10 @@ describe('Authenticator:', function() {
     describe('Sign In:', () => {
         it('allows a user to signin', () => {
             cy.get(selectors.usernameInput).type(
-                '<** staging環境に存在するユーザID **>'
+                'gitkado'
             );
             cy.get(selectors.signInPasswordInput).type(
-                '<** staging環境に存在するユーザのパスワード **>'
+                'password'
             );
             cy.get(selectors.signInSignInButton).contains('Sign In').click();
             cy.wait(3000)
